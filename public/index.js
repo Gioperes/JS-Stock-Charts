@@ -56,26 +56,25 @@ async function main() {
         }
     });
 
-    // High Chart
-    new Chart(highestPriceChartCanvas.getContext('2d'), {
-        type: 'bar',
-        data: {
-            labels: stocks.map(stock => stock.meta.symbol),
-            datasets: [{
-                label: 'Highest',
-                backgroundColor: stocks.map(stock => (
-                    getColor(stock.meta.symbol)
-                )),
-                borderColor: stocks.map(stock => (
-                    getColor(stock.meta.symbol)
-                )),
-                data: stocks.map(stock => (
-                    findHighest(stock.values)
-                ))
-            }]
-        }
-    });
-
+  // High Chart
+  new Chart(highestPriceChartCanvas.getContext('2d'), {
+    type: 'bar',
+    data: {
+        labels: stocks.map(stock => stock.meta.symbol),
+        datasets: [{
+            label: 'Highest',
+            backgroundColor: stocks.map(stock => (
+                getColor(stock.meta.symbol)
+            )),
+            borderColor: stocks.map(stock => (
+                getColor(stock.meta.symbol)
+            )),
+            data: stocks.map(stock => (
+                findHighest(stock.values)
+            ))
+        }]
+    }
+});
     // Average Chart
     new Chart(averagePriceChartCanvas.getContext('2d'), {
         type: 'pie',
